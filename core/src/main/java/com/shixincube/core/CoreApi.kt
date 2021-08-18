@@ -1,5 +1,9 @@
 package com.shixincube.core
 
-object CoreApi {
+import com.shixincube.BaseApi
 
+object CoreApi {
+    fun init() {
+//        BaseApi
+    }
 }
