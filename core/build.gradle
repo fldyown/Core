@@ -17,7 +17,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode Integer.parseInt(time())
-        versionName "2.0"
+        versionName "2.2.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -36,16 +36,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-//    android.libraryVariants.all { variant ->
-//        variant.outputs.all {
-//            def fileName = "core-${buildType.name}-v${defaultConfig.versionName}.${defaultConfig.versionCode}.aar"
-//            outputFileName = fileName
-//        }
-//    }
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "core-${buildType.name}-v${defaultConfig.versionName}.${defaultConfig.versionCode}.aar"
+            outputFileName = fileName
+        }
+    }
     lintOptions {
         abortOnError false
     }
-
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
     repositories { flatDir { dirs 'libs' } }
 }
 
